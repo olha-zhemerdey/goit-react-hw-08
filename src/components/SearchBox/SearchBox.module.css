@@ -1,0 +1,44 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #001a00;
+    border: 1px solid green;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    color: green;
+  }
+  
+  .label {
+    font-size: 16px;
+    color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .input {
+    width: 94.2%;
+    padding: 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: black;
+    color: green;
+    font-size: 14px;
+  }
+  
+  .input::placeholder {
+    color: #00ff00;
+    opacity: 0.8;
+  }
+  
+  .input:focus {
+    border-color: #00ff00;
+    outline: none;
+  }
+  

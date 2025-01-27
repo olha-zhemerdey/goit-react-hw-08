@@ -1,0 +1,29 @@
+.list {
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+    max-width: 600px;
+  
+  }
+  
+  .list > li {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: black;
+    color: green;
+  }
+  
+  .list > li:hover {
+    background-color: #004d00;
+    color: #00ff00;
+  }
+  
+  .empty {
+    text-align: center;
+    color: green;
+    font-style: italic;
+    padding: 20px;
+  }
+  

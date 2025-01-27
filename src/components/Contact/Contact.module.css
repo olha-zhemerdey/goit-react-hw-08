@@ -1,0 +1,44 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: #001a00;
+    color: green;
+  }
+  
+  .itemContact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .itemContact p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: green;
+    color: black;
+    border: none;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #054205;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  

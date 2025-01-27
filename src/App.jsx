@@ -1,35 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
+import { Route, Routes } from 'react-router';
+
+import { selectIsRefreshing } from './redux/auth/selectors';
+import Loader from './components/Loader/Loader';
+import Layout from './components/Layout/Layout';
+import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+
+import { refreshUser } from './redux/auth/operations';
 
 function App() {
-  const [count, setCount] = useState(0)
+	const dispatch = useDispatch();
+	const isRefreshing = useSelector(selectIsRefreshing);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	useEffect(() => {
+		dispatch(refreshUser());
+	}, [dispatch]);
+
+	return (
+		<>
+			{isRefreshing ? (
+				<Loader />
+			) : (
+				<Layout>
+					<Routes>
+						<Route path='/' element={<HomePage />} />
+						<Route
+							path='/register'
+							element={
+								<RestrictedRoute
+									redirectTo='/contacts'
+									component={<RegisterPage />}
+								/>
+							}
+						/>
+						<Route
+							path='/login'
+							element={
+								<RestrictedRoute
+									redirectTo='/contacts'
+									component={<LoginPage />}
+								/>
+							}
+						/>
+						<Route
+							path='/contacts'
+							element={
+								<PrivateRoute
+									redirectTo='/login'
+									component={<ContactsPage />}
+								/>
+							}
+						/>
+						<Route
+							path='*'
+							element={
+								<RestrictedRoute redirectTo='*' component={<NotFoundPage />} />
+							}
+						/>
+					</Routes>
+				</Layout>
+			)}
+			<Toaster position='top-right' reverseOrder={false} />
+		</>
+	);
 }
 
-export default App
+export default App;
