@@ -49,18 +49,18 @@ const ContactForm = () => {
     >
       {({ isSubmitting }) => (
       <Form className={css.form}>
-        <label>
+        <label className={css.labelContact}>
           Name
           <div>
             <Field className={css.field} type="text" name="name" placeholder='Enter First Name and Last Name' />
             <ErrorMessage
               name="name"
               component="div"
-
+              style={{ color: "tomato" }}
             />
           </div>
         </label>
-        <label>
+        <label labelContact>
           Number
           <div>
             <Field

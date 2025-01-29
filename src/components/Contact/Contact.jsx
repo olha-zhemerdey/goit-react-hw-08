@@ -50,7 +50,7 @@ const Contact = ({ contact }) => {
 			<li className={css.contactItem}>
 				<div className={css.textWrapper}>
 					<div className={css.contactContext}>
-						<IoIosContact />css
+						<IoIosContact />
 						<span>{contact.name}</span>
 					</div>
 					<div className={css.contactContext}>
@@ -64,20 +64,20 @@ const Contact = ({ contact }) => {
 						type='button'
 						aria-label='edit button'
 					>
-						<LiaUserEditSolid color='#5c9beb' />
+						<LiaUserEditSolid color='#00ff00' />
 					</button>
 					<button
 						onClick={handleOpenDeleteNodal}
 						type='button'
 						aria-label='delete button'
 					>
-						<AiOutlineUserDelete color='tomato' />
+						<AiOutlineUserDelete color='#00ff00' />
 					</button>
 				</div>
 			</li>
 
 			{isEditModalOpen && (
-				<EditContactModal
+				<EditContactModal 
 					handleCloseModal={handleCloseEditModal}
 					handleUpdateContact={handleUpdateContact}
 					id={contact.id}

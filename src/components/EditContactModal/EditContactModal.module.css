@@ -1,0 +1,67 @@
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color:#242e29bd;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.formContact {
+	width: 40%;
+	width: 400px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	border: 2px solid green;
+	border-radius: 8px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #054205;
+}
+
+
+.formLabel {
+	text-align: start;
+	display: block;
+}
+
+.formInputWrapper {
+	position: relative;
+}
+
+.formInput {
+    background-color: #cee9ddbd;
+	border-style: none;
+	border-radius: 8px;
+	padding-block: 8px;
+	padding-inline: 12px;
+	width: calc(100% - 24px);
+	margin-bottom: 24px;
+}
+
+.formErrorMessage {
+	position: absolute;
+	top: 32px;
+	left: 8px;
+	color: tomato;
+}
+
+.btnWrapper {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+.formButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	margin: auto;
+}  

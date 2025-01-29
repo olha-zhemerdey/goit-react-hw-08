@@ -16,12 +16,10 @@ export const Navigation = () => {
 	return (
 		<nav className={css.nav}>
 			<NavLink className={buildLinkClass} to='/'>
-				<FcHome />
-				<span>Home</span>
+				<span className={css.homeLink}>Home</span>
 			</NavLink>
 			{isLoggedIn && (
-				<NavLink className={buildLinkClass} to='/contacts'>
-					<FcContacts />
+				<NavLink className={css.buildLinkClass} to='/contacts'>
 					<span>Contacts</span>
 				</NavLink>
 			)}
