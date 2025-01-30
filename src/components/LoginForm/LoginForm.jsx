@@ -77,7 +77,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { CiLogin } from 'react-icons/ci';
-import { useId } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/operations';
@@ -89,11 +88,11 @@ const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
 const RegistrationSchema = Yup.object().shape({
 	email: Yup.string()
-		.email('Please enter a valid email')
-		.required('Email is required field!'),
+		.email('Please enter a valid email!')
+		.required('Email is required!'),
 	password: Yup.string()
-		.matches(passwordRules, 'Please create a stronger password!')
-		.required('Password is required field!'),
+		.matches(passwordRules, 'Please enter a valid password!')
+		.required('Password is required!'),
 });
 
 const initialValues = {
@@ -102,8 +101,6 @@ const initialValues = {
 };
 
 const LoginForm = () => {
-	const emailFieldId = useId();
-	const passwordFieldId = useId();
 
 	const dispatch = useDispatch();
 
@@ -121,16 +118,15 @@ const LoginForm = () => {
 		>
 			{({ isSubmitting }) => (
 				<Form className={css.formContact}>
-					<label className={css.formLabel} htmlFor={emailFieldId}>
-						Email
-					</label>
+					<label className={css.formLabel} >
+					Email
 					<div className={css.formInputWrapper}>
 						<Field
 							className={css.formInput}
 							type='email'
 							inputMode='email'
 							name='email'
-							id={emailFieldId}
+							
 						/>
 						<ErrorMessage
 							className={css.formErrorMessage}
@@ -138,17 +134,16 @@ const LoginForm = () => {
 							component='div'
 						/>
 					</div>
-
-					<label className={css.formLabel} htmlFor={passwordFieldId}>
-						Password
 					</label>
+					<label className={css.formLabel}>
+					Password
 					<div className={css.formInputWrapper}>
 						<Field
 							className={css.formInput}
 							type='password'
 							inputMode='text'
 							name='password'
-							id={passwordFieldId}
+						
 						/>
 						<ErrorMessage
 							className={css.formErrorMessage}
@@ -156,7 +151,7 @@ const LoginForm = () => {
 							component='div'
 						/>
 					</div>
-
+					</label>
 					<button
 						className={css.formButton}
 						type='submit'

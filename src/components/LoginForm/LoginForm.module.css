@@ -31,7 +31,7 @@
     padding: 10px;
     border: 1px solid green;
     border-radius: 5px;
-    background-color: black;
+    background-color: #001a00;
     color: green;
     font-size: 14px;
     margin-bottom: 24px;
@@ -50,7 +50,7 @@
 
 .formButton {
     background-color: green;
-    color: black;
+    color: #001a00;
     border: none;
     padding: 10px 20px;
     font-size: 16px;

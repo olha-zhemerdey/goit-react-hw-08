@@ -12,7 +12,7 @@ const ContactForm = () => {
     dispatch(addContact(values))
     .unwrap()
 			.then((result) => {
-				toast.success(`Contact ${values.name} Successfully added!`);
+				toast.success(`Contact ${values.name} successfully added!`);
 				console.log('result: ', result);
 
 				actions.setSubmitting(false);
@@ -27,13 +27,13 @@ const ContactForm = () => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Name is required"),
+      .min(3, "Too short!")
+      .max(50, "Too long!")
+      .required("Name is required!"),
     number: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Number is required"),
+      .min(3, "Too short!")
+      .max(50, "Too long!")
+      .required("Number is required!"),
   });
 
   const initialValues = {
@@ -60,7 +60,7 @@ const ContactForm = () => {
             />
           </div>
         </label>
-        <label labelContact>
+        <label className={css.labelContact}>
           Number
           <div>
             <Field
